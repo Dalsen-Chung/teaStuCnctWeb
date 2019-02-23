@@ -1,26 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
-	public function __construct()
-    {
-		parent::__construct();
+class Captcha extends CI_Controller {
+
+	public function generate_code () 
+	{
         $this->load->helper('captcha');
-    }
-
-	public function index($page = 'login')
-	{
-		if ( ! file_exists(APPPATH.'views/login/'.$page.'.php'))
-		{
-			// Whoops, we don't have a page for that!
-			show_404();
-		}
-		$imgsrc = $this->show_captcha();
-		$this->load->view('login/login', array('codeimg' => $imgsrc));
-	}
-
-	public function show_captcha() 
-	{
         $vals = array(
             'word'      => '',
             'img_path'  => './public/common/captcha/',
@@ -41,16 +26,7 @@ class Login extends CI_Controller {
                 'grid' => array(255, 40, 40)
             )
         );
-		$cap = create_captcha($vals);
-		$this->session->verifyCode = $cap['word'];
-        return $cap['image'];
-	}
-
-	public function do () 
-	{
-		$account = $this->input->post('account');
-		$password = $this->input->post('password');
-		$verify_code = $this->input->post('verify_code');
-		echo $account.'-'.md5($password).'-'.$verify_code;
+        $cap = create_captcha($vals);
+        echo $cap['image'];
 	}
 }

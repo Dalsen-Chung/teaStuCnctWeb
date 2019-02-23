@@ -52,6 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /* 默认访问路由 */
 $route['default_controller'] = 'Login';
 
+/* 登录请求 */
+$route['login/do']['post'] = 'Login/do';
+
+/* 获取验证码 */
+$route['show_captcha']['get'] = 'Login/show_captcha';
+
 /* 控制台 */
 $route['dashboard'] = 'Dashboard/view';
 

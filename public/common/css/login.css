@@ -1,0 +1,23 @@
+.loginWarp {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F2F2;
+}
+.loginWarp .formWarp {
+    width: 400px;
+}
+.loginWarp .formWarp .warpTitle {
+    background-color: #009688;
+    margin-bottom: 1em;
+    text-align: center;
+    border-radius: 10px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    font-size: 15px;
+}
+.loginWarp .formWarp .warpTitle i {
+    margin-right: 10px;
+}
