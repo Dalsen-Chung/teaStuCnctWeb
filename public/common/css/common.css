@@ -9,3 +9,7 @@
     font-size: 15px;
     margin-right: 10px;
 }
+/* college---学院信息页面css */
+#college .layui-card-header button{
+    margin-left: 2em;
+}

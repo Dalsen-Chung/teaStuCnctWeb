@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class="loginWarp">
         <div class="formWarp">
-            <form class="layui-form layui-form-pane" method="post" action="<?php echo site_url('login/do') ?>">
+            <form class="layui-form layui-form-pane" method="post" action="<?php echo site_url('web/login/do') ?>">
                 <div class="warpTitle">
                     <span><i class="layui-icon">&#xe656;</i>高校师生通讯录管理后台</span>
                 </div>
@@ -37,9 +37,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="layui-form-item">
-                <a href="<?php echo site_url() ?>" title="点击刷新">
-                    <?php echo $codeimg;?>
-                </a>
+                    <a href="<?php echo site_url() ?>" title="点击刷新">
+                        <?php echo $this->session->codeimg; ?>
+                    </a>
+                    <?php echo isset($this->session->login_error) && $this->session->login_error !== '' ? 
+                        '<span style="color: #FF5722;padding-left: 10px;font-weight: bold;"><i class="layui-icon">&#xe69c;</i> '
+                        .$this->session->login_error.'</span>' : '';
+                    ?>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
@@ -51,12 +55,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <script src="<?php echo base_url('public/layui/layui.all.js') ?>"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        layui.use('form', function(){
-            var form = layui.form;
-        //各种基于事件的操作，下面会有进一步介绍
-        });
-    </script>
 </body>
 </html>

@@ -50,30 +50,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 /* 默认访问路由 */
-$route['default_controller'] = 'Login';
+$route['default_controller'] = 'Home';
 
 /* 登录请求 */
-$route['login/do']['post'] = 'Login/do';
+$route['web/login'] = 'web/Login';
+$route['web/login/do']['post'] = 'web/Login/do';
+
+/* 退出登录 */
+$route['web/logout'] = 'web/Logout';
 
 /* 获取验证码 */
-$route['show_captcha']['get'] = 'Login/show_captcha';
+$route['web/show_captcha']['get'] = 'web/Login/show_captcha';
 
 /* 控制台 */
-$route['dashboard'] = 'Dashboard/view';
+$route['web/dashboard'] = 'web/Dashboard/view';
 
 /* 机构管理 */
-$route['org_mgt/college'] = 'College/view';
-$route['org_mgt/major'] = 'Major/view';
-$route['org_mgt/edu_branch'] = 'Edu_branch/view';
+$route['web/org_mgt/college'] = 'web/College/view';
+$route['web/org_mgt/major'] = 'web/Major/view';
+$route['web/org_mgt/edu_branch'] = 'web/Edu_branch/view';
 
 /* 公告管理 */
-$route['nt_mgt/notice_list'] = 'Notice/view';
-$route['nt_mgt/unreview_list'] = 'Notice/unreview';
+$route['web/nt_mgt/notice_list'] = 'web/Notice/view';
+$route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
 
 /* 用户管理 */
-$route['user_mgt/student'] = 'Student/view';
-$route['user_mgt/teacher'] = 'Teacher/view';
-$route['user_mgt/administrators'] = 'Administrators/view';
+$route['web/user_mgt/student'] = 'web/Student/view';
+$route['web/user_mgt/teacher'] = 'web/Teacher/view';
+$route['web/user_mgt/administrators'] = 'web/Administrators/view';
 
 /* 保留路由 */
 $route['404_override'] = '';
