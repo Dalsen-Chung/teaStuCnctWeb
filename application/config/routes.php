@@ -67,8 +67,11 @@ $route['web/dashboard'] = 'web/Dashboard/view';
 
 /* 机构管理 */
 $route['web/org_mgt/college'] = 'web/College/view';
+$route['web/org_mgt/add_college'] = 'web/College/add_college';
+
 $route['web/org_mgt/major'] = 'web/Major/view';
 $route['web/org_mgt/edu_branch'] = 'web/Edu_branch/view';
+$route['api/college/upload_icon']['post'] = 'web/College/icon_upload';
 
 /* 公告管理 */
 $route['web/nt_mgt/notice_list'] = 'web/Notice/view';

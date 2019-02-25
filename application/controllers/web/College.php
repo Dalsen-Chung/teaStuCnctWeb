@@ -19,10 +19,50 @@ class College extends CI_Controller {
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
+		$college_list = $this->get_college();
+		$data['college_list'] = $college_list;
 		$this->load->view('common/header');
 		$this->load->view('common/navbar');
 		$this->load->view('common/sidebar');
-		$this->load->view('college/college');
+		$this->load->view('college/college', $data);
 		$this->load->view('common/footer');
+	}
+
+	public function icon_upload()	//	上传学院图标
+	{
+        $config['upload_path'] = './public/common/image/college/';
+        $config['allowed_types'] = 'jpg|png|gif|bmp|jpeg';
+        $config['encrypt_name'] = true;
+		$this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('iconImg'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            echo json_encode($error);
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            echo json_encode($data);
+        }
+	}
+
+	public function get_college() 
+	{
+		$this->load->model('web/college_model');
+		$res = $this->college_model->get_college();
+		return $res;
+	}
+
+	public function add_college()	//	往数据库添加学院信息
+	{
+        $data = array(
+            'college_name' => $this->input->post('college_name'),
+            'college_icon' => $this->input->post('college_icon'),
+            'college_address' => $this->input->post('college_address'),
+            'college_introduction' => $this->input->post('college_introduction')
+        );
+		$this->load->model('web/college_model');
+		$res = $this->college_model->insert_college($data);
+		echo $res;
 	}
 }

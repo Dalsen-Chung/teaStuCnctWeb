@@ -13,3 +13,7 @@
 #college .layui-card-header button{
     margin-left: 2em;
 }
+#addCollegeMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}
