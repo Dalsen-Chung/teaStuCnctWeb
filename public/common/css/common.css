@@ -17,3 +17,30 @@
     width: 500px;
     margin: 2em auto;
 }
+
+/* major---专业信息页面css */
+#major .layui-card-header button{
+    margin-left: 2em;
+}
+#addMajorMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}
+
+/* edu_branch---教学及科研部门信息页面css */
+#edu_branch .layui-card-header button{
+    margin-left: 2em;
+}
+#addEduBranchMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}
+
+/* student---学生信息页面css */
+#student .layui-card-header button{
+    margin-left: 2em;
+}
+#addStudentMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}

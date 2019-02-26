@@ -68,9 +68,16 @@ $route['web/dashboard'] = 'web/Dashboard/view';
 /* 机构管理 */
 $route['web/org_mgt/college'] = 'web/College/view';
 $route['web/org_mgt/add_college'] = 'web/College/add_college';
+$route['web/org_mgt/delete_college'] = 'web/College/delete_college';
 
 $route['web/org_mgt/major'] = 'web/Major/view';
+$route['web/org_mgt/add_major'] = 'web/Major/add_major';
+$route['web/org_mgt/delete_major'] = 'web/Major/delete_major';
+
 $route['web/org_mgt/edu_branch'] = 'web/Edu_branch/view';
+$route['web/org_mgt/add_edu_branch'] = 'web/Edu_branch/add_edu_branch';
+$route['web/org_mgt/delete_edu_branch'] = 'web/Edu_branch/delete_edu_branch';
+
 $route['api/college/upload_icon']['post'] = 'web/College/icon_upload';
 
 /* 公告管理 */

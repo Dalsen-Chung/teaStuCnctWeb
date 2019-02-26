@@ -8,42 +8,42 @@
                 </button>
             </div>
             <div class="layui-card-body">
-            <table class="layui-table">
-                <colgroup>
-                    <col width="150">
-                    <col width="200">
-                    <col>
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>学院ID</th>
-                        <th>学院名称</th>
-                        <th>学院图标</th>
-                        <th>学院地址</th>
-                        <th>学院简介</th>
-                        <th>操作</th>
-                    </tr> 
-                </thead>
-                <tbody>
-                    <?php foreach ($college_list as $college):?>
+                <table class="layui-table" lay-size="sm">
+                    <colgroup>
+                        <col width="60">
+                        <col width="150">
+                        <col>
+                        <col width="110">
+                        <col>
+                        <col width="40">
+                    </colgroup>
+                    <thead>
                         <tr>
-                            <td><?php echo $college['college_id'];?></td>
-                            <td><?php echo $college['college_name'];?></td>
-                            <td><img src="<?php echo $college['college_icon'];?>" alt=""></td>
-                            <td><?php echo $college['college_address'];?></td>
-                            <td><?php echo $college['college_introduction'];?></td>
-                            <td>
-                                <a href="http://www.layui.com" class="layui-btn layui-btn-xs">
-                                    <i class="layui-icon">&#xe642;</i>
-                                </a>
-                                <a href="http://www.layui.com" class="layui-btn layui-btn-danger layui-btn-xs">
-                                    <i class="layui-icon">&#xe640;</i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table>
+                            <th>学院ID</th>
+                            <th>学院名称</th>
+                            <th>学院图标</th>
+                            <th>学院地址</th>
+                            <th>学院简介</th>
+                            <th>操作</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <?php foreach ($college_list as $college):?>
+                            <tr>
+                                <td><?php echo $college['college_id'];?></td>
+                                <td><?php echo $college['college_name'];?></td>
+                                <td><img src="<?php echo base_url('public/common/image/college/'.$college['college_icon']);?>" alt=""></td>
+                                <td><?php echo $college['college_address'];?></td>
+                                <td><?php echo $college['college_introduction'];?></td>
+                                <td>
+                                    <a href="<?php echo site_url('web/org_mgt/delete_college').'?college_id='.$college['college_id']; ?>" class="layui-btn layui-btn-danger layui-btn-xs">
+                                        <i class="layui-icon">&#xe640;</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

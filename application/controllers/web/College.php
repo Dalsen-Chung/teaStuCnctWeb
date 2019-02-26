@@ -63,6 +63,18 @@ class College extends CI_Controller {
         );
 		$this->load->model('web/college_model');
 		$res = $this->college_model->insert_college($data);
-		echo $res;
+		if ($res == 1) {
+			return redirect('web/org_mgt/college');
+		}
+	}
+
+	public function delete_college()	//	删除学院信息
+	{
+		$college_id = $this->input->get('college_id');
+		$this->load->model('web/college_model');
+		$res = $this->college_model->delete_college($college_id);
+		if ($res == 1) {
+			return redirect('web/org_mgt/college');
+		}
 	}
 }
