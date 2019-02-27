@@ -42,6 +42,50 @@ layui.use('layer', function(){
         resize: false
     });
   });
+
+  /* 学生信息页面添加信息弹窗 */
+  $('#student_add_btn').click(function() {
+    layer.open({
+        id: 'student_add',
+        type: 1,
+        title: '<i class="layui-icon">&#xe654;</i> 添加学生',
+        content: $('#addStudentMsgForm'),
+        area: ['600px', '610px'],
+        closeBtn: 2,
+        offset: '20px',
+        shadeClose: true,
+        resize: false
+    });
+  });
+
+  /* 教师信息页面添加信息弹窗 */
+  $('#teacher_add_btn').click(function() {
+    layer.open({
+        id: 'teacher_add',
+        type: 1,
+        title: '<i class="layui-icon">&#xe654;</i> 添加教师',
+        content: $('#addTeacherMsgForm'),
+        area: ['600px', '610px'],
+        closeBtn: 2,
+        offset: '20px',
+        shadeClose: true,
+        resize: false
+    });
+  });
+
+  /* 管理员信息页面添加信息弹窗 */
+  $('#admin_add_btn').click(function() {
+    layer.open({
+        id: 'admin_add',
+        type: 1,
+        title: '<i class="layui-icon">&#xe654;</i> 添加管理员',
+        content: $('#addAdminMsgForm'),
+        area: '600px',
+        closeBtn: 2,
+        shadeClose: true,
+        resize: false
+    });
+  });
 });
 
 layui.use('upload', function(){
@@ -72,5 +116,9 @@ layui.use('upload', function(){
       }
     }
   });
+
+});
+
+$(document).ready(function () {
 
 });

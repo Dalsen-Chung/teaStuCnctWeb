@@ -44,3 +44,21 @@
     width: 500px;
     margin: 2em auto;
 }
+
+/* student---教师信息页面css */
+#teacher .layui-card-header button{
+    margin-left: 2em;
+}
+#addTeacherMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}
+
+/* admin---管理员信息页面css */
+#admin .layui-card-header button{
+    margin-left: 2em;
+}
+#addAdminMsgForm {
+    width: 500px;
+    margin: 2em auto;
+}

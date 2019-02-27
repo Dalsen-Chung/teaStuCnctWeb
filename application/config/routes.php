@@ -86,8 +86,16 @@ $route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
 
 /* 用户管理 */
 $route['web/user_mgt/student'] = 'web/Student/view';
+$route['web/user_mgt/add_student'] = 'web/Student/add_student';
+$route['web/user_mgt/delete_student'] = 'web/Student/delete_student';
+
 $route['web/user_mgt/teacher'] = 'web/Teacher/view';
+$route['web/user_mgt/add_teacher'] = 'web/Teacher/add_teacher';
+$route['web/user_mgt/delete_teacher'] = 'web/Teacher/delete_teacher';
+
 $route['web/user_mgt/administrators'] = 'web/Administrators/view';
+$route['web/user_mgt/add_administrators'] = 'web/Administrators/add_administrators';
+$route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_administrators';
 
 /* 保留路由 */
 $route['404_override'] = '';
