@@ -18,6 +18,14 @@ class Major_model extends CI_Model {
         return $query_res->result_array();
     }
 
+    public function get_major_by_college($college_id)
+    {
+        $query = $this->db->select('*')->from(self::$table_name)
+                    ->where('college_id', $college_id)
+                        ->get()->result_array();
+        return $query;
+    }
+
     public function insert_major($major) 
     {        
         $query_res = $this->db->insert(self::$table_name, $major);

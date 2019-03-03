@@ -1,8 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Student extends CI_Controller {
+class Teacher extends CI_Controller {
 
+
+    public function login()
+    {
+        $this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->load->model('app/teacher_model');
+		$account = $this->input->post_get('account');
+        $password = $this->input->post_get('password');
+        $user_info = $this->teacher_model->get_teacher_info($account);
+        if (isset($user_info)) {	// 数组不存在则账号不存在
+            $md5_pass = md5($password);
+            if ($md5_pass != $user_info['tea_password']) {	//	判断密码是否一样
+                echo json_encode(array('resMsg' => 'failed', 'resBody' => '密码错误'));
+            } else {
+                echo json_encode(array('resMsg' => 'success', 'resBody' => $user_info));
+            }
+        } else {
+            echo json_encode(array('resMsg' => 'failed', 'resBody' => '账号不存在'));
+        }
+    }
 
 	public function view($page = 'student')
 	{
@@ -46,7 +65,7 @@ class Student extends CI_Controller {
 	{
         $data = array(
             'stu_account' => $this->input->post('stu_account'),
-            'stu_password' => md5($this->input->post('stu_password')),
+            'stu_password' => $this->input->post('stu_password'),
             'stu_name' => $this->input->post('stu_name'),
             'stu_sex' => $this->input->post('stu_sex'),
             'role_id' => $this->input->post('role_id'),

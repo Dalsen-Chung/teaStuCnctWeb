@@ -83,6 +83,7 @@ $route['api/college/upload_icon']['post'] = 'web/College/icon_upload';
 /* 公告管理 */
 $route['web/nt_mgt/notice_list'] = 'web/Notice/view';
 $route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
+$route['app/nt_mgt/save_notice'] = 'app/Notice/save_notice';
 
 /* 用户管理 */
 $route['web/user_mgt/student'] = 'web/Student/view';
@@ -96,6 +97,12 @@ $route['web/user_mgt/delete_teacher'] = 'web/Teacher/delete_teacher';
 $route['web/user_mgt/administrators'] = 'web/Administrators/view';
 $route['web/user_mgt/add_administrators'] = 'web/Administrators/add_administrators';
 $route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_administrators';
+
+/*******************   APP请求路由  ************************/
+$route['app/student/login'] = 'app/Student/login';
+$route['app/teacher/login'] = 'app/Teacher/login';
+$route['app/college/getCollege'] = 'app/College/get_college';
+$route['app/major/getMajorByCollege'] = 'app/Major/get_major_by_college';
 
 /* 保留路由 */
 $route['404_override'] = '';
