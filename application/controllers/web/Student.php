@@ -48,6 +48,7 @@ class Student extends CI_Controller {
             'stu_account' => $this->input->post('stu_account'),
             'stu_password' => md5($this->input->post('stu_password')),
             'stu_name' => $this->input->post('stu_name'),
+            'stu_spell' => $this->input->post('stu_spell'),
             'stu_sex' => $this->input->post('stu_sex'),
             'role_id' => $this->input->post('role_id'),
             'stu_grade' => $this->input->post('stu_grade'),

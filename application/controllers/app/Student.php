@@ -24,21 +24,14 @@ class Student extends CI_Controller {
         }
     }
 
-	public function view($page = 'student')
+	public function get_stu_by_college_major()
 	{
-		if ( ! file_exists(APPPATH.'views/student/'.$page.'.php'))
-		{
-			// Whoops, we don't have a page for that!
-			show_404();
-		}
-		$data['college_option'] = $this->get_college_option();
-		$data['major_option'] = $this->get_major_option();
-		$data['student_list'] = $this->get_student();
-		$this->load->view('common/header');
-		$this->load->view('common/navbar');
-		$this->load->view('common/sidebar');
-		$this->load->view('student/student', $data);
-		$this->load->view('common/footer');
+		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->load->model('app/student_model');
+		$college_id = $this->input->post('collegeId');
+		$major_id = $this->input->post('majorId');
+		$res = $this->student_model->get_stu_by_college_major($college_id, $major_id);
+		echo json_encode($res);
 	}
 
 	public function get_college_option() 

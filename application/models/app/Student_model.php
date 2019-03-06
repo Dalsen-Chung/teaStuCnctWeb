@@ -11,5 +11,12 @@ class Student_model extends CI_Model {
                         ->get()->row_array();
         return $query;
     }
+
+    public function get_stu_by_college_major($college_id, $major_id) {
+        $query = $this->db->select('stu_id,stu_spell,stu_name')->from(self::$table_name)
+                    ->where('college_id', $college_id)->where('major_id', $major_id)
+                        ->get()->result_array();
+        return $query;
+    }
     
 }

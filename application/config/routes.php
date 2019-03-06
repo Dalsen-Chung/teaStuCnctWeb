@@ -100,9 +100,11 @@ $route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_admini
 
 /*******************   APP请求路由  ************************/
 $route['app/student/login'] = 'app/Student/login';
+$route['app/student/getStudentByCM'] = 'app/Student/get_stu_by_college_major';
 $route['app/teacher/login'] = 'app/Teacher/login';
 $route['app/college/getCollege'] = 'app/College/get_college';
 $route['app/major/getMajorByCollege'] = 'app/Major/get_major_by_college';
+$route['app/role/getRole'] = 'app/role/get_role';
 
 /* 保留路由 */
 $route['404_override'] = '';

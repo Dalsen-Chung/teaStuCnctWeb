@@ -48,6 +48,7 @@ class Teacher extends CI_Controller {
             'tea_account' => $this->input->post('tea_account'),
             'tea_password' => $this->input->post('tea_password'),
             'tea_name' => $this->input->post('tea_name'),
+            'tea_spell' => $this->input->post('tea_spell'),
             'tea_sex' => $this->input->post('tea_sex'),
             'role_id' => $this->input->post('role_id'),
             'college_id' => $this->input->post('college_id'),

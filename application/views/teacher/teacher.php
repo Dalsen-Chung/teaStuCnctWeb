@@ -84,6 +84,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">姓名拼音</label>
+            <div class="layui-input-block">
+                <input type="text" name="tea_spell" required  lay-verify="required" placeholder="请输入姓名全拼" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">性别</label>
             <div class="layui-input-block">
             <input type="radio" name="tea_sex" value="男" title="男" checked>

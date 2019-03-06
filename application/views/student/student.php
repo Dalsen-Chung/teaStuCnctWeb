@@ -11,7 +11,7 @@
                 <table class="layui-table" lay-size="sm">
                     <colgroup>
                         <col width="60">
-                        <col width="50">
+                        <col width="60">
                         <col width="50">
                         <col width="60">
                         <col width="50">
@@ -84,6 +84,12 @@
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
                 <input type="text" name="stu_name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名拼音</label>
+            <div class="layui-input-block">
+                <input type="text" name="stu_spell" required  lay-verify="required" placeholder="请输入姓名全拼" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
