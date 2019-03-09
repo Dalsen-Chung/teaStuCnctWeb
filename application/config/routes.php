@@ -85,6 +85,8 @@ $route['web/nt_mgt/notice_list'] = 'web/Notice/view';
 $route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
 $route['app/nt_mgt/save_notice'] = 'app/Notice/save_notice';
 
+/*信息工单审核*/
+
 /* 用户管理 */
 $route['web/user_mgt/student'] = 'web/Student/view';
 $route['web/user_mgt/add_student'] = 'web/Student/add_student';
@@ -102,9 +104,12 @@ $route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_admini
 $route['app/student/login'] = 'app/Student/login';
 $route['app/student/getStudentByCM'] = 'app/Student/get_stu_by_college_major';
 $route['app/teacher/login'] = 'app/Teacher/login';
+$route['app/teacher/getTeacherByCM'] = 'app/Teacher/get_tea_by_college_major';
 $route['app/college/getCollege'] = 'app/College/get_college';
 $route['app/major/getMajorByCollege'] = 'app/Major/get_major_by_college';
 $route['app/role/getRole'] = 'app/role/get_role';
+$route['app/apply/saveApply'] = 'app/apply/save_apply';
+$route['app/feedback/saveFeedback'] = 'app/feedback/save_feedback';
 
 /* 保留路由 */
 $route['404_override'] = '';

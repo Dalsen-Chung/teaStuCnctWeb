@@ -27,11 +27,37 @@ class Student extends CI_Controller {
 	public function get_stu_by_college_major()
 	{
 		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->output->set_header('Content-Type:application/json');
 		$this->load->model('app/student_model');
 		$college_id = $this->input->post('collegeId');
 		$major_id = $this->input->post('majorId');
 		$res = $this->student_model->get_stu_by_college_major($college_id, $major_id);
-		echo json_encode($res);
+		$en = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+		$resultArr = array();
+		foreach ($en as $enValue) {
+			foreach ($res as $stuValue) {
+				$aa = $stuValue;
+				$spell = $stuValue['stu_spell'];
+				$firstEn = strtoupper(substr($spell,0,1));
+				if ($enValue === $firstEn) {
+					if (!isset($resultArr[$enValue])) {
+						$resultArr[$enValue] = array();
+						array_push($resultArr[$enValue], array(
+							"id" => intval($stuValue['stu_id']),
+							"spell" => $stuValue['stu_spell'],
+							"name" => $stuValue['stu_name']
+						));
+					} else {
+						array_push($resultArr[$enValue], array(
+							"id" => intval($stuValue['stu_id']),
+							"spell" => $stuValue['stu_spell'],
+							"name" => $stuValue['stu_name']
+						));
+					}
+				}
+			}
+		}
+		echo json_encode($resultArr);
 	}
 
 	public function get_college_option() 

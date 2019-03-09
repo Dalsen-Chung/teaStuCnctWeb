@@ -23,21 +23,40 @@ class Teacher extends CI_Controller {
         }
     }
 
-	public function view($page = 'student')
+	public function get_tea_by_college_major()
 	{
-		if ( ! file_exists(APPPATH.'views/student/'.$page.'.php'))
-		{
-			// Whoops, we don't have a page for that!
-			show_404();
+		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->output->set_header('Content-Type:application/json');
+		$this->load->model('app/teacher_model');
+		$college_id = $this->input->post('collegeId');
+		$major_id = $this->input->post('majorId');
+		$res = $this->teacher_model->get_tea_by_college_major($college_id, $major_id);
+		$en = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+		$resultArr = array();
+		foreach ($en as $enValue) {
+			foreach ($res as $stuValue) {
+				$aa = $stuValue;
+				$spell = $stuValue['tea_spell'];
+				$firstEn = strtoupper(substr($spell,0,1));
+				if ($enValue === $firstEn) {
+					if (!isset($resultArr[$enValue])) {
+						$resultArr[$enValue] = array();
+						array_push($resultArr[$enValue], array(
+							"id" => intval($stuValue['tea_id']),
+							"spell" => $stuValue['tea_spell'],
+							"name" => $stuValue['tea_name']
+						));
+					} else {
+						array_push($resultArr[$enValue], array(
+							"id" => intval($stuValue['tea_id']),
+							"spell" => $stuValue['tea_spell'],
+							"name" => $stuValue['tea_name']
+						));
+					}
+				}
+			}
 		}
-		$data['college_option'] = $this->get_college_option();
-		$data['major_option'] = $this->get_major_option();
-		$data['student_list'] = $this->get_student();
-		$this->load->view('common/header');
-		$this->load->view('common/navbar');
-		$this->load->view('common/sidebar');
-		$this->load->view('student/student', $data);
-		$this->load->view('common/footer');
+		echo json_encode($resultArr);
 	}
 
 	public function get_college_option() 
