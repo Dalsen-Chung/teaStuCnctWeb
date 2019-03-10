@@ -5,6 +5,14 @@ class Apply_model extends CI_Model {
 
     public static $table_name = 'apply_record_tb';
 
+    public function get_apply($apply_user_id,$apply_user_type)
+    {
+        $query = $this->db->select('*')->from(self::$table_name)
+                    ->where('apply_user_id', $apply_user_id)->where('apply_user_type', $apply_user_type)
+                    ->order_by('apply_time', 'DESC')->get()->result_array();
+        return $query;
+    }
+
     public function save_apply($apply) 
     {        
         $query_res = $this->db->insert(self::$table_name, $apply);

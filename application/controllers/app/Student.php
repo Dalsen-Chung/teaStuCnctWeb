@@ -45,13 +45,15 @@ class Student extends CI_Controller {
 						array_push($resultArr[$enValue], array(
 							"id" => intval($stuValue['stu_id']),
 							"spell" => $stuValue['stu_spell'],
-							"name" => $stuValue['stu_name']
+							"name" => $stuValue['stu_name'],
+							"roleId" => intval($stuValue['role_id'])
 						));
 					} else {
 						array_push($resultArr[$enValue], array(
 							"id" => intval($stuValue['stu_id']),
 							"spell" => $stuValue['stu_spell'],
-							"name" => $stuValue['stu_name']
+							"name" => $stuValue['stu_name'],
+							"roleId" => intval($stuValue['role_id'])
 						));
 					}
 				}
@@ -60,11 +62,14 @@ class Student extends CI_Controller {
 		echo json_encode($resultArr);
 	}
 
-	public function get_college_option() 
+	public function get_stu_by_id() 
 	{
-		$this->load->model('web/college_model');
-		$res = $this->college_model->get_college_option();
-		return $res;
+		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->output->set_header('Content-Type:application/json');
+		$stu_id = intval($this->input->post('user_id'));
+		$this->load->model('app/student_model');
+		$res = $this->student_model->get_stu_by_id($stu_id);
+		echo json_encode($res);
 	}
 
 	public function get_major_option() 

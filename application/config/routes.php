@@ -83,7 +83,6 @@ $route['api/college/upload_icon']['post'] = 'web/College/icon_upload';
 /* 公告管理 */
 $route['web/nt_mgt/notice_list'] = 'web/Notice/view';
 $route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
-$route['app/nt_mgt/save_notice'] = 'app/Notice/save_notice';
 
 /*信息工单审核*/
 
@@ -103,13 +102,19 @@ $route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_admini
 /*******************   APP请求路由  ************************/
 $route['app/student/login'] = 'app/Student/login';
 $route['app/student/getStudentByCM'] = 'app/Student/get_stu_by_college_major';
+$route['app/student/getStudentById'] = 'app/Student/get_stu_by_id';
 $route['app/teacher/login'] = 'app/Teacher/login';
 $route['app/teacher/getTeacherByCM'] = 'app/Teacher/get_tea_by_college_major';
+$route['app/teacher/getTeacherById'] = 'app/Teacher/get_tea_by_id';
 $route['app/college/getCollege'] = 'app/College/get_college';
+$route['app/eduBranch/getEduBranch'] = 'app/Edu_branch/get_branch';
 $route['app/major/getMajorByCollege'] = 'app/Major/get_major_by_college';
 $route['app/role/getRole'] = 'app/role/get_role';
 $route['app/apply/saveApply'] = 'app/apply/save_apply';
+$route['app/apply/getApply'] = 'app/apply/get_apply';
 $route['app/feedback/saveFeedback'] = 'app/feedback/save_feedback';
+$route['app/nt_mgt/save_notice'] = 'app/Notice/save_notice';
+$route['app/nt_mgt/get_notice'] = 'app/Notice/get_notice';
 
 /* 保留路由 */
 $route['404_override'] = '';

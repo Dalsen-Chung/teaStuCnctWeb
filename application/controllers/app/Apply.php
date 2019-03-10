@@ -24,4 +24,14 @@ class Apply extends CI_Controller {
 		$res = $this->apply_model->save_apply($data);
         echo json_encode($res);
     }
+
+    public function get_apply()
+    {
+        $this->output->set_header("Access-Control-Allow-Origin: * ");
+        $apply_user_id = $this->input->post('apply_user_id');
+        $apply_user_type = $this->input->post('apply_user_type');
+        $this->load->model('app/apply_model');
+		$res = $this->apply_model->get_apply($apply_user_id,$apply_user_type);
+        echo json_encode($res);
+    }
 }

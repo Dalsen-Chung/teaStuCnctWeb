@@ -13,9 +13,21 @@ class Student_model extends CI_Model {
     }
 
     public function get_stu_by_college_major($college_id, $major_id) {
-        $query = $this->db->select('stu_id,stu_spell,stu_name')->from(self::$table_name)
-                    ->where('college_id', $college_id)->where('major_id', $major_id)
-                    ->order_by('stu_spell', 'ASC')->get()->result_array();
+        if($major_id==='') {
+            $query = $this->db->select('stu_id,stu_spell,stu_name,role_id')->from(self::$table_name)
+            ->where('college_id', $college_id)->order_by('stu_spell', 'ASC')->get()->result_array();
+        } else {
+            $query = $this->db->select('stu_id,stu_spell,stu_name,role_id')->from(self::$table_name)
+            ->where('college_id', $college_id)->where('major_id', $major_id)
+            ->order_by('stu_spell', 'ASC')->get()->result_array();
+        }
+        return $query;
+    }
+
+    public function get_stu_by_id($stu_id)  {
+        $query = $this->db->select('*')->from(self::$table_name)
+                    ->where('stu_id', $stu_id)
+                        ->get()->row_array();
         return $query;
     }
     

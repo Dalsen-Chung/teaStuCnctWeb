@@ -27,4 +27,12 @@ class Notice extends CI_Controller {
 		$res = $this->notice_model->save_notice($data);
         echo json_encode($res);
     }
+
+    public function get_notice()
+    {
+        $this->output->set_header("Access-Control-Allow-Origin: * ");
+        $this->load->model('app/notice_model');
+		$res = $this->notice_model->get_notice();
+        echo json_encode($res);
+    }
 }
