@@ -115,6 +115,7 @@ $route['app/apply/getApply'] = 'app/apply/get_apply';
 $route['app/feedback/saveFeedback'] = 'app/feedback/save_feedback';
 $route['app/nt_mgt/save_notice'] = 'app/Notice/save_notice';
 $route['app/nt_mgt/get_notice'] = 'app/Notice/get_notice';
+$route['app/nt_mgt/get_notice_by_id'] = 'app/Notice/get_notice_by_id';
 
 /* 保留路由 */
 $route['404_override'] = '';

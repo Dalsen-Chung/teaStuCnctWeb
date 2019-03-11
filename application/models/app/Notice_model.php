@@ -19,6 +19,13 @@ class Notice_model extends CI_Model {
         return $query;
     }
 
+    public function get_notice_by_id($notice_id) 
+    {        
+        $query = $this->db->select('*')->from(self::$table_name)
+                    ->where('notice_id', $notice_id)->get()->row_array();
+        return $query;
+    }
+
     public function delete_major($major_id) 
     {        
         $query_res = $this->db->delete(self::$table_name, array('major_id' => $major_id));
