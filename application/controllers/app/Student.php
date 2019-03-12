@@ -72,6 +72,18 @@ class Student extends CI_Controller {
 		echo json_encode($res);
 	}
 
+	public function update_stu_info()
+	{
+		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->output->set_header('Content-Type:application/json');
+		$stu_id = intval($this->input->post('user_id'));
+		$stu_phone = $this->input->post('phone');
+		$stu_password = md5($this->input->post('password'));
+		$this->load->model('app/student_model');
+		$res = $this->student_model->update_stu_info($stu_id,$stu_phone,$stu_password);
+		echo json_encode($res);
+	}
+
 	public function get_major_option() 
 	{
 		$this->load->model('web/major_model');

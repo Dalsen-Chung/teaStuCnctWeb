@@ -8,6 +8,7 @@ class Apply_model extends CI_Model {
     public function get_apply($apply_user_id,$apply_user_type)
     {
         $query = $this->db->select('*')->from(self::$table_name)
+                    ->join('role_info_tb', 'role_info_tb.role_id = apply_record_tb.check_user_type')
                     ->where('apply_user_id', $apply_user_id)->where('apply_user_type', $apply_user_type)
                     ->order_by('apply_time', 'DESC')->get()->result_array();
         return $query;

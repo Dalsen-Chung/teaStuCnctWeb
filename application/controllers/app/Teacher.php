@@ -71,6 +71,18 @@ class Teacher extends CI_Controller {
 		echo json_encode($res);
 	}
 
+	public function update_tea_info()
+	{
+		$this->output->set_header("Access-Control-Allow-Origin: * ");
+		$this->output->set_header('Content-Type:application/json');
+		$tea_id = intval($this->input->post('user_id'));
+		$tea_phone = $this->input->post('phone');
+		$tea_password = md5($this->input->post('password'));
+		$this->load->model('app/teacher_model');
+		$res = $this->teacher_model->update_tea_info($tea_id,$tea_phone,$tea_password);
+		echo json_encode($res);
+	}
+
 	public function get_major_option() 
 	{
 		$this->load->model('web/major_model');

@@ -22,8 +22,16 @@ class Notice_model extends CI_Model {
     public function get_notice_by_id($notice_id) 
     {        
         $query = $this->db->select('*')->from(self::$table_name)
-                    ->where('notice_id', $notice_id)->get()->row_array();
+                ->join('tea_user_tb','notice_tb.notice_tea_id = tea_user_tb.tea_id')
+                ->where('notice_id', $notice_id)->get()->row_array();
         return $query;
+    }
+
+    public function add_read_num($notice_id)
+    {
+        $this->db->set('notice_read_times', 'notice_read_times+1', FALSE);
+        $this->db->where('notice_id', $notice_id);
+        $this->db->update(self::$table_name);
     }
 
     public function delete_major($major_id) 

@@ -26,9 +26,19 @@ class Student_model extends CI_Model {
 
     public function get_stu_by_id($stu_id)  {
         $query = $this->db->select('*')->from(self::$table_name)
-                    ->where('stu_id', $stu_id)
-                        ->get()->row_array();
+                ->join('college_info_tb','college_info_tb.college_id = stu_user_tb.college_id')
+                ->join('major_info_tb','major_info_tb.major_id = stu_user_tb.major_id')
+                ->where('stu_id', $stu_id)->get()->row_array();
         return $query;
     }
     
+    public function update_stu_info($stu_id,$stu_phone,$stu_password) {
+        $data = array(
+            'stu_password' => $stu_password,
+            'stu_phone' => $stu_phone
+        );
+        $this->db->where('stu_id', $stu_id);
+        $query = $this->db->update(self::$table_name, $data);
+        return $query;
+    }
 }

@@ -11,6 +11,7 @@ class Apply extends CI_Controller {
         $apply_user_type = $this->input->post('apply_user_type');
         $check_user_id = $this->input->post('check_user_id');
         $check_user_type = $this->input->post('check_user_type');
+        $check_user_name = $this->input->post('check_user_name');
         $data = array(
             'apply_time' => date("Y-m-d H:i:s"),
             'apply_reason' => $apply_reason,
@@ -18,6 +19,7 @@ class Apply extends CI_Controller {
             'apply_user_type' => $apply_user_type,
             'check_user_id' => $check_user_id,
             'check_user_type' => $check_user_type,
+            'check_user_name' => $check_user_name,
             'apply_result' => 0
         );
         $this->load->model('app/apply_model');

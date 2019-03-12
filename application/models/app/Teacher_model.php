@@ -30,4 +30,14 @@ class Teacher_model extends CI_Model {
                         ->get()->row_array();
         return $query;
     }
+
+    public function update_tea_info($tea_id,$tea_phone,$tea_password) {
+        $data = array(
+            'tea_password' => $tea_password,
+            'tea_phone' => $tea_phone
+        );
+        $this->db->where('tea_id', $tea_id);
+        $query = $this->db->update(self::$table_name, $data);
+        return $query;
+    }
 }
