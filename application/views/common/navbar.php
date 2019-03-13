@@ -2,8 +2,8 @@
   <div class="layui-logo navber-title"><i class="layui-icon siderbar-icon">&#xe653;</i>App-Backstage</div>
   <!-- 头部区域（可配合layui已有的水平导航） -->
   <ul class="layui-nav layui-layout-left">
-    <li class="layui-nav-item <?php echo uri_string() === 'web/dashboard'? 'layui-this' : '' ?>">
-      <a href="<?php echo site_url('web/dashboard') ?>">控制台</a>
+    <li class="layui-nav-item <?php echo uri_string() === 'web/order_mgt'? 'layui-this' : '' ?>">
+      <a href="<?php echo site_url('web/order_mgt') ?>">工单管理</a>
     </li>
     <li class="layui-nav-item <?php echo uri_string() === 'web/nt_mgt/notice_list'? 'layui-this' : '' ?>">
       <a href="<?php echo site_url('web/nt_mgt/notice_list') ?>">公告列表</a>

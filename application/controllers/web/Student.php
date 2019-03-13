@@ -3,7 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Student extends CI_Controller {
 
-
+	public function __construct()
+	{
+		parent::__construct();
+		if (!$this->session->is_login) {
+			$this->session->login_error = '请先登录!';
+			return redirect('web/login');
+		}
+	}
+	
 	public function view($page = 'student')
 	{
 		if ( ! file_exists(APPPATH.'views/student/'.$page.'.php'))
@@ -50,7 +58,7 @@ class Student extends CI_Controller {
             'stu_name' => $this->input->post('stu_name'),
             'stu_spell' => $this->input->post('stu_spell'),
             'stu_sex' => $this->input->post('stu_sex'),
-            'role_id' => $this->input->post('role_id'),
+            'role_id' => 2,
             'stu_grade' => $this->input->post('stu_grade'),
             'college_id' => $this->input->post('college_id'),
             'major_id' => $this->input->post('major_id'),

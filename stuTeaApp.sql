@@ -25,9 +25,9 @@ CREATE TABLE IF NOT EXISTS `admin_user_tb` (
   `admin_account` varchar(50) NOT NULL DEFAULT '0' COMMENT '管理员账号',
   `admin_password` varchar(50) NOT NULL DEFAULT '0' COMMENT '管理员密码',
   PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员基础信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='管理员基础信息表';
 
--- 正在导出表  teastucnct.admin_user_tb 的数据：~0 rows (大约)
+-- 正在导出表  teastucnct.admin_user_tb 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `admin_user_tb` DISABLE KEYS */;
 INSERT INTO `admin_user_tb` (`admin_id`, `admin_name`, `college_id`, `major_id`, `admin_account`, `admin_password`) VALUES
 	(1, '温雪莹', 1, 1, '152014060', 'e10adc3949ba59abbe56e057f20f883e'),
@@ -41,22 +41,22 @@ CREATE TABLE IF NOT EXISTS `apply_record_tb` (
   `apply_reason` varchar(500) NOT NULL COMMENT '申请理由',
   `apply_user_id` int(11) NOT NULL COMMENT '申请用户ID',
   `apply_user_type` int(11) NOT NULL COMMENT '申请用户的角色类型',
+  `apply_user_name` varchar(50) NOT NULL COMMENT '申请用户名称',
   `check_user_id` int(11) NOT NULL COMMENT '被查看用户ID',
   `check_user_type` int(11) NOT NULL COMMENT '被查看用户的角色类型',
   `check_user_name` varchar(50) NOT NULL COMMENT '被查看用户名称',
-  `apply_result` int(11) NOT NULL COMMENT '申请结果',
+  `apply_result` int(11) NOT NULL COMMENT '申请结果-0/1/2',
   PRIMARY KEY (`apply_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='通讯录查看申请记录表';
 
--- 正在导出表  teastucnct.apply_record_tb 的数据：~8 rows (大约)
+-- 正在导出表  teastucnct.apply_record_tb 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `apply_record_tb` DISABLE KEYS */;
-INSERT INTO `apply_record_tb` (`apply_id`, `apply_time`, `apply_reason`, `apply_user_id`, `apply_user_type`, `check_user_id`, `check_user_type`, `check_user_name`, `apply_result`) VALUES
-	(1, '2019-03-12 23:20:41', '查看安同学', 1, 2, 7, 2, '安同学', 0),
-	(2, '2019-03-12 23:21:44', '查看张老师', 1, 2, 2, 3, '张老师', 0),
-	(3, '2019-03-13 00:03:28', '有急事', 1, 2, 3, 2, '钟斌', 0),
-	(4, '2019-03-13 00:06:31', '有急事找李同学。', 3, 3, 5, 2, '李同学', 0),
-	(5, '2019-03-13 00:08:31', '查看张老师', 1, 2, 2, 3, '张老师', 0),
-	(6, '2019-03-13 00:12:55', '有事寻找。', 3, 3, 8, 2, '包同学', 0);
+INSERT INTO `apply_record_tb` (`apply_id`, `apply_time`, `apply_reason`, `apply_user_id`, `apply_user_type`, `apply_user_name`, `check_user_id`, `check_user_type`, `check_user_name`, `apply_result`) VALUES
+	(1, '2019-03-12 23:20:41', '查看安同学', 1, 2, '温同学', 7, 2, '安同学', 1),
+	(3, '2019-03-13 00:03:28', '有急事', 1, 2, '温同学', 3, 2, '钟斌', 0),
+	(4, '2019-03-13 00:06:31', '有急事找李同学。', 3, 3, '温老师', 5, 2, '李同学', 0),
+	(5, '2019-03-13 00:08:31', '查看张老师', 1, 2, '温同学', 2, 3, '张老师', 0),
+	(6, '2019-03-13 00:12:55', '有事寻找。', 3, 3, '温老师', 8, 2, '包同学', 0);
 /*!40000 ALTER TABLE `apply_record_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.college_info_tb 结构
@@ -141,42 +141,53 @@ CREATE TABLE IF NOT EXISTS `notice_tb` (
   PRIMARY KEY (`notice_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='公告表';
 
--- 正在导出表  teastucnct.notice_tb 的数据：~18 rows (大约)
+-- 正在导出表  teastucnct.notice_tb 的数据：~17 rows (大约)
 /*!40000 ALTER TABLE `notice_tb` DISABLE KEYS */;
 INSERT INTO `notice_tb` (`notice_id`, `notice_tea_id`, `notice_time`, `notice_title`, `notice_content`, `notice_read_times`, `college_id`, `major_id`, `notice_pass_review`, `notice_is_all`) VALUES
-	(1, 2, '2019-03-04 21:56:37', '第一个公告的标题', '第一个公告的内容', 3, 0, 0, 1, 0),
-	(2, 2, '2019-03-04 21:56:37', '1', '1', 0, 0, 0, 1, 0),
-	(3, 2, '2019-03-04 21:59:09', '1', '1', 2, 1, 2, 1, 0),
-	(4, 2, '2019-03-04 22:03:08', '333', '333', 1, 0, 1, 1, 0),
-	(5, 2, '2019-03-04 22:07:41', '驱蚊器翁', '驱蚊器翁', 0, 0, 0, 1, 0),
-	(6, 2, '2019-03-04 22:08:13', '333', '222', 0, 0, 0, 1, 0),
-	(7, 2, '2019-03-04 22:11:59', '55', '55', 0, 0, 0, 1, 0),
-	(8, 2, '2019-03-04 22:12:37', '撒大声地', '撒大声地', 2, 1, 2, 1, 0),
-	(9, 2, '2019-03-04 22:14:28', '撒大声地所多所多所多', '奥术大师大所多', 0, 0, 0, 1, 0),
-	(11, 3, '2019-03-09 16:24:37', '阿萨德', '22', 2, 1, 0, 1, 1),
-	(12, 3, '2019-03-09 20:16:52', '打撒所多所多', '33', 3, 0, 0, 1, 1),
-	(13, 3, '2019-03-09 20:19:40', '哈哈', '44', 3, 0, 0, 1, 1),
-	(14, 2, '2019-03-09 22:46:08', '吼吼', '55', 10, 0, 0, 1, 1),
-	(15, 3, '2019-03-10 00:36:27', '123', '123', 0, 0, 1, 0, 0),
-	(16, 3, '2019-03-10 00:38:07', '321', '321', 0, 0, 1, 0, 0),
-	(17, 3, '2019-03-10 00:38:57', '1111', '111', 0, 0, 0, 0, 0),
-	(18, 3, '2019-03-10 00:40:12', '去', '的', 0, 0, 0, 0, 1),
-	(19, 3, '2019-03-10 00:44:52', '得的', '5', 0, 0, 0, 0, 0),
-	(20, 3, '2019-03-10 00:49:57', '44', '44', 0, 1, 1, 0, 0),
-	(21, 3, '2019-03-10 00:50:18', '得的', '000', 0, 1, 3, 0, 0),
-	(22, 3, '2019-03-10 00:50:49', '得的', '快快快', 0, 2, 4, 0, 0),
-	(23, 3, '2019-03-13 00:15:19', '关于体育课课时调整公告', '体育课时间调整啦', 2, 1, 1, 1, 1);
+	(1, 2, '2019-03-04 21:56:37', '第一个公告的标题', '第一个公告的内容', 3, 1, 1, 1, 0),
+	(2, 2, '2019-03-04 21:56:37', '1', '1', 0, 1, 1, 1, 0),
+	(3, 2, '2019-03-04 21:59:09', '1', '1', 2, 1, 3, 1, 0),
+	(4, 2, '2019-03-04 22:03:08', '333', '333', 1, 2, 4, 1, 0),
+	(5, 2, '2019-03-04 22:07:41', '驱蚊器翁', '驱蚊器翁', 0, 2, 4, 1, 0),
+	(6, 2, '2019-03-04 22:08:13', '333', '222', 0, 2, 4, 1, 0),
+	(7, 2, '2019-03-04 22:11:59', '55', '55', 0, 1, 1, 1, 0),
+	(8, 2, '2019-03-04 22:12:37', '撒大声地', '撒大声地', 2, 1, 1, 1, 0),
+	(9, 2, '2019-03-04 22:14:28', '撒大声地所多所多所多', '奥术大师大所多', 0, 1, 1, 1, 0),
+	(11, 4, '2019-03-09 16:24:37', '阿萨德', '22', 2, 1, 1, 1, 1),
+	(12, 4, '2019-03-09 20:16:52', '打撒所多所多', '33', 3, 2, 4, 1, 1),
+	(13, 4, '2019-03-09 20:19:40', '哈哈', '44', 3, 1, 1, 1, 1),
+	(14, 2, '2019-03-09 22:46:08', '吼吼', '55', 10, 2, 4, 1, 1),
+	(15, 4, '2019-03-10 00:36:27', '123', '123', 0, 1, 1, 0, 0),
+	(16, 4, '2019-03-10 00:38:07', '321', '321', 0, 2, 4, 0, 0),
+	(17, 4, '2019-03-10 00:38:57', '1111', '111', 0, 1, 1, 0, 0),
+	(18, 4, '2019-03-10 00:40:12', '去', '的', 0, 2, 4, 0, 1),
+	(19, 4, '2019-03-10 00:44:52', '得的', '5', 0, 1, 1, 0, 0),
+	(20, 4, '2019-03-10 00:49:57', '44', '44', 0, 1, 1, 2, 0),
+	(21, 4, '2019-03-10 00:50:18', '得的', '000', 0, 1, 3, 1, 0),
+	(23, 4, '2019-03-13 00:15:19', '关于体育课课时调整公告', '体育课时间调整啦', 2, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `notice_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.priv_resce_tb 结构
 CREATE TABLE IF NOT EXISTS `priv_resce_tb` (
   `priv_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '权限ID',
+  `priv_code` varchar(50) NOT NULL DEFAULT '0',
   `priv_name` varchar(50) NOT NULL DEFAULT '0' COMMENT '权限名称',
   PRIMARY KEY (`priv_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
 
 -- 正在导出表  teastucnct.priv_resce_tb 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `priv_resce_tb` DISABLE KEYS */;
+INSERT INTO `priv_resce_tb` (`priv_id`, `priv_code`, `priv_name`) VALUES
+	(1, 'loginBack', '登录系统后台'),
+	(2, 'orderMgt', '工单管理'),
+	(3, 'apartMgt', '机构管理'),
+	(4, 'noticeMgt', '公告管理'),
+	(5, 'userMgt', '用户管理'),
+	(6, 'loginApp', '登录APP'),
+	(7, 'applyInfo', '信息查看申请'),
+	(8, 'releaseNotice', '发布公告'),
+	(9, 'readAllInfo', '查看所有通讯录'),
+	(10, 'readPrviInfo', '按权查看通讯录');
 /*!40000 ALTER TABLE `priv_resce_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.role_info_tb 结构
@@ -203,6 +214,24 @@ CREATE TABLE IF NOT EXISTS `role_priv_tb` (
 
 -- 正在导出表  teastucnct.role_priv_tb 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `role_priv_tb` DISABLE KEYS */;
+INSERT INTO `role_priv_tb` (`role_id`, `priv_id`) VALUES
+	(1, 1),
+	(1, 2),
+	(1, 3),
+	(1, 4),
+	(1, 5),
+	(1, 6),
+	(1, 7),
+	(1, 8),
+	(1, 9),
+	(1, 10),
+	(2, 6),
+	(2, 7),
+	(2, 10),
+	(3, 6),
+	(3, 7),
+	(3, 8),
+	(3, 9);
 /*!40000 ALTER TABLE `role_priv_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.stu_user_tb 结构
@@ -221,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `stu_user_tb` (
   `stu_phone` varchar(50) NOT NULL DEFAULT '0' COMMENT '电话',
   `stu_address` varchar(200) NOT NULL DEFAULT '0' COMMENT '家庭住址',
   PRIMARY KEY (`stu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='学生用户基本信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='学生用户基本信息表';
 
 -- 正在导出表  teastucnct.stu_user_tb 的数据：~10 rows (大约)
 /*!40000 ALTER TABLE `stu_user_tb` DISABLE KEYS */;
@@ -236,7 +265,7 @@ INSERT INTO `stu_user_tb` (`stu_id`, `role_id`, `stu_account`, `stu_password`, `
 	(10, 2, '152014002', 'e10adc3949ba59abbe56e057f20f883e', '陈同学', 'chentongxue', '男', '2015级', 1, 1, '三班', '123456', '123456'),
 	(11, 2, '152014002', 'e10adc3949ba59abbe56e057f20f883e', '陈同学', 'chentongxue', '男', '2015级', 1, 1, '三班', '123456', '123456'),
 	(12, 2, '152014002', 'e10adc3949ba59abbe56e057f20f883e', '陈同学', 'chentongxue', '男', '2015级', 1, 1, '三班', '123456', '123456'),
-	(13, 2, '152014002', 'e10adc3949ba59abbe56e057f20f883e', '陈同学', 'chentongxue', '男', '2015级', 1, 1, '三班', '123456', '123456');
+	(14, 2, '147', 'e10adc3949ba59abbe56e057f20f883e', '小张', 'xiaozhang', '男', '2016级', 1, 1, '三班', '123', '123');
 /*!40000 ALTER TABLE `stu_user_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.tea_user_tb 结构
@@ -254,13 +283,12 @@ CREATE TABLE IF NOT EXISTS `tea_user_tb` (
   `tea_course` varchar(200) DEFAULT NULL COMMENT '所有教授课程，以逗号分隔',
   `tea_isInstructor` int(2) DEFAULT NULL COMMENT '是否为辅导员',
   PRIMARY KEY (`tea_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='教师用户基本信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='教师用户基本信息表';
 
 -- 正在导出表  teastucnct.tea_user_tb 的数据：~13 rows (大约)
 /*!40000 ALTER TABLE `tea_user_tb` DISABLE KEYS */;
 INSERT INTO `tea_user_tb` (`tea_id`, `role_id`, `tea_account`, `tea_password`, `tea_name`, `tea_spell`, `tea_sex`, `college_id`, `major_id`, `tea_phone`, `tea_course`, `tea_isInstructor`) VALUES
 	(2, 3, '152014060', 'e10adc3949ba59abbe56e057f20f883e', '张老师', 'zhanglaoshi', '男', 1, 1, '22', '22', 1),
-	(3, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
 	(4, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
 	(5, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
 	(6, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
@@ -271,7 +299,8 @@ INSERT INTO `tea_user_tb` (`tea_id`, `role_id`, `tea_account`, `tea_password`, `
 	(11, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
 	(12, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
 	(13, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', '钟老师', 'zhonglaoshi', '男', 1, 1, '15622281569', '数学,英语', 0),
-	(14, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', 'z老师', 'zhonglaoshi', '女', 1, 3, '15622281569', '数学,英语', 0);
+	(14, 3, '142014119', 'e10adc3949ba59abbe56e057f20f883e', 'z老师', 'zhonglaoshi', '女', 1, 3, '15622281569', '数学,英语', 0),
+	(15, 3, '156', '123456', '杨老师', 'yanglaoshi', '男', 1, 3, '222', '数学,英语', 0);
 /*!40000 ALTER TABLE `tea_user_tb` ENABLE KEYS */;
 
 -- 导出  表 teastucnct.user_role_tb 结构

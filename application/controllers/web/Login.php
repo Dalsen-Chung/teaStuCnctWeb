@@ -64,7 +64,7 @@ class Login extends CI_Controller {
 				if ($md5_pass != $user_info['admin_password']) {	//	判断密码是否一样
 					$this->redirect_to_login('密码错误');
 				} else {
-					$this-> redirect_to_dashboard($user_info);
+					$this-> redirect_to_order_mgt($user_info);
 				}
 			} else {
 				$this->redirect_to_login('账号不存在');
@@ -79,13 +79,13 @@ class Login extends CI_Controller {
 		return redirect('web/login');
 	}
 
-	public function redirect_to_dashboard($user_info) {
+	public function redirect_to_order_mgt($user_info) {
 		$this->session->login_error = '';
 		$this->session->admin_name = $user_info['admin_name'];
 		$this->session->account = $user_info['admin_account'];
 		$this->session->college_id = $user_info['college_id'];
 		$this->session->major_id = $user_info['major_id'];
 		$this->session->is_login = true;
-		return redirect('web/dashboard');
+		return redirect('web/order_mgt');
 	}
 }

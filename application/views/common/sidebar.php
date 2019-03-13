@@ -2,9 +2,9 @@
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test"  id="sidebar">
-        <li class="layui-nav-item <?php echo uri_string() === 'web/dashboard'? 'layui-this' : '' ?>">
-            <a href="<?php echo site_url('web/dashboard') ?>">
-                <i class="layui-icon siderbar-icon">&#xe665;</i>控制台
+        <li class="layui-nav-item <?php echo uri_string() === 'web/order_mgt'? 'layui-this' : '' ?>">
+            <a href="<?php echo site_url('web/order_mgt') ?>">
+                <i class="layui-icon siderbar-icon">&#xe63c;</i>工单管理
             </a>
         </li>
         <li class="layui-nav-item <?php echo strpos(uri_string(),'org_mgt')  !== false ? 'layui-nav-itemed' : '' ?>">

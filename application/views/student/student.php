@@ -13,12 +13,11 @@
                         <col width="60">
                         <col width="60">
                         <col width="50">
-                        <col width="60">
                         <col width="50">
                         <col width="70">
                         <col width="70">
-                        <col width="60">
-                        <col width="60">
+                        <col width="150">
+                        <col width="150">
                         <col width="50">
                         <col>
                         <col width="50">
@@ -28,12 +27,11 @@
                             <th>学生ID</th>
                             <th>姓名</th>
                             <th>登录账号</th>
-                            <th>角色ID</th>
                             <th>性别</th>
                             <th>电话</th>
                             <th>年级</th>
-                            <th>学院ID</th>
-                            <th>专业ID</th>
+                            <th>所属学院</th>
+                            <th>所属专业</th>
                             <th>班级</th>
                             <th>家庭住址</th>
                             <th>操作</th>
@@ -45,12 +43,11 @@
                                 <td><?php echo $student['stu_id'];?></td>
                                 <td><?php echo $student['stu_name'];?></td> 
                                 <td><?php echo $student['stu_account'];?></td> 
-                                <td><?php echo $student['role_id'];?></td>
                                 <td><?php echo $student['stu_sex'];?></td>
                                 <td><?php echo $student['stu_phone'];?></td>
                                 <td><?php echo $student['stu_grade'];?></td>
-                                <td><?php echo $student['college_id'];?></td>
-                                <td><?php echo $student['major_id'];?></td>
+                                <td><?php echo $student['college_name'];?></td>
+                                <td><?php echo $student['major_name'];?></td>
                                 <td><?php echo $student['stu_class'];?></td>
                                 <td><?php echo $student['stu_address'];?></td>
                                 <td>
@@ -99,7 +96,7 @@
             <input type="radio" name="stu_sex" value="女" title="女">
             </div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">角色</label>
             <div class="layui-input-block">
             <select name="role_id" lay-verify="required">
@@ -107,7 +104,7 @@
                     <option value="1">1</option>
             </select>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label">年级</label>
             <div class="layui-input-block">

@@ -19,7 +19,7 @@
                     <thead>
                         <tr>
                             <th>专业ID</th>
-                            <th>所属学院ID</th>
+                            <th>所属学院</th>
                             <th>专业名称</th>
                             <th>专业简介</th>
                             <th>操作</th>
@@ -29,7 +29,7 @@
                         <?php foreach ($major_list as $major):?>
                             <tr>
                                 <td><?php echo $major['major_id'];?></td>
-                                <td><?php echo $major['college_id'];?></td>
+                                <td><?php echo $major['college_name'];?></td>
                                 <td><?php echo $major['major_name'];?></td>
                                 <td><?php echo $major['major_introduction'];?></td>
                                 <td>

@@ -3,7 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Administrators extends CI_Controller {
 
-
+	public function __construct()
+	{
+		parent::__construct();
+		if (!$this->session->is_login) {
+			$this->session->login_error = '请先登录!';
+			return redirect('web/login');
+		}
+	}
+	
 	public function view($page = 'admin')
 	{
 		if ( ! file_exists(APPPATH.'views/admin/'.$page.'.php'))
@@ -62,7 +70,7 @@ class Administrators extends CI_Controller {
 	{
 		$admin_id = $this->input->get('admin_id');
 		$this->load->model('web/admin_model');
-		$res = $this->admin_model->delete_admin($tea_id);
+		$res = $this->admin_model->delete_admin($admin_id);
 		if ($res == 1) {
 			return redirect('web/user_mgt/administrators');
 		}

@@ -7,6 +7,8 @@ class Major_model extends CI_Model {
 
     public function get_major() 
     {
+        $this->db->select('*');
+        $this->db->join('college_info_tb','college_info_tb.college_id = major_info_tb.college_id');
         $query_res = $this->db->get(self::$table_name);
         return $query_res->result_array();
     }

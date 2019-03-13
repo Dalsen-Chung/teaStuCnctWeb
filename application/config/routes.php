@@ -62,8 +62,11 @@ $route['web/logout'] = 'web/Logout';
 /* 获取验证码 */
 $route['web/show_captcha']['get'] = 'web/Login/show_captcha';
 
-/* 控制台 */
-$route['web/dashboard'] = 'web/Dashboard/view';
+/* 工单管理 */
+$route['web/order_mgt'] = 'web/Order_mgt/view';
+$route['web/order_mgt/pass_apply'] = 'web/Order_mgt/pass_apply';
+$route['web/order_mgt/unpass_apply'] = 'web/Order_mgt/unpass_apply';
+$route['web/order_mgt/delete_apply'] = 'web/Order_mgt/delete_apply';
 
 /* 机构管理 */
 $route['web/org_mgt/college'] = 'web/College/view';
@@ -82,7 +85,10 @@ $route['api/college/upload_icon']['post'] = 'web/College/icon_upload';
 
 /* 公告管理 */
 $route['web/nt_mgt/notice_list'] = 'web/Notice/view';
+$route['web/nt_mgt/delete_notice'] = 'web/Notice/delete_notice';
 $route['web/nt_mgt/unreview_list'] = 'web/Notice/unreview';
+$route['web/nt_mgt/pass_notice'] = 'web/Notice/pass_notice';
+$route['web/nt_mgt/unpass_notice'] = 'web/Notice/unpass_notice';
 
 /*信息工单审核*/
 

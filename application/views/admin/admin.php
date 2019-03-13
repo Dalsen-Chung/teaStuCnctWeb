@@ -22,8 +22,8 @@
                             <th>管理员ID</th>
                             <th>姓名</th>
                             <th>登录账号</th>
-                            <th>学院ID</th>
-                            <th>专业ID</th>
+                            <th>所属学院</th>
+                            <th>所属专业</th>
                             <th>操作</th>
                         </tr> 
                     </thead>
@@ -33,8 +33,8 @@
                                 <td><?php echo $admin['admin_id'];?></td>
                                 <td><?php echo $admin['admin_name'];?></td> 
                                 <td><?php echo $admin['admin_account'];?></td> 
-                                <td><?php echo $admin['college_id'];?></td>
-                                <td><?php echo $admin['major_id'];?></td>
+                                <td><?php echo $admin['college_name'];?></td>
+                                <td><?php echo $admin['major_name'];?></td>
                                 <td>
                                     <a href="<?php echo site_url('web/user_mgt/delete_administrators').'?admin_id='.$admin['admin_id']; ?>" 
                                         class="layui-btn layui-btn-danger layui-btn-xs <?php echo $admin['admin_account'] === $this->session->account ? 'layui-btn-disabled' : ''; ?>"> 

@@ -13,7 +13,6 @@
                         <col width="60">
                         <col width="80">
                         <col width="100">
-                        <col width="60">
                         <col width="50">
                         <col width="100">
                         <col width="100">
@@ -27,11 +26,10 @@
                             <th>教师ID</th>
                             <th>姓名</th>
                             <th>登录账号</th>
-                            <th>角色ID</th>
                             <th>性别</th>
                             <th>电话</th>
-                            <th>学院ID</th>
-                            <th>专业ID</th>
+                            <th>所属学院</th>
+                            <th>所属专业</th>
                             <th>教授课程</th>
                             <th>是否为辅导员</th>
                             <th>操作</th>
@@ -43,13 +41,12 @@
                                 <td><?php echo $teacher['tea_id'];?></td>
                                 <td><?php echo $teacher['tea_name'];?></td> 
                                 <td><?php echo $teacher['tea_account'];?></td> 
-                                <td><?php echo $teacher['role_id'];?></td>
                                 <td><?php echo $teacher['tea_sex'];?></td>
                                 <td><?php echo $teacher['tea_phone'];?></td>
-                                <td><?php echo $teacher['college_id'];?></td>
-                                <td><?php echo $teacher['major_id'];?></td>
+                                <td><?php echo $teacher['college_name'];?></td>
+                                <td><?php echo $teacher['major_name'];?></td>
                                 <td><?php echo $teacher['tea_course'];?></td>
-                                <td><?php echo $teacher['tea_isInstructor'];?></td>
+                                <td><?php echo $teacher['tea_isInstructor'] === '0' ? '否' : '是';?></td>
                                 <td>
                                     <a href="<?php echo site_url('web/user_mgt/delete_teacher').'?tea_id='.$teacher['tea_id']; ?>" class="layui-btn layui-btn-danger layui-btn-xs">
                                         <i class="layui-icon">&#xe640;</i>
@@ -96,15 +93,15 @@
             <input type="radio" name="tea_sex" value="女" title="女">
             </div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">角色</label>
             <div class="layui-input-block">
-            <select name="role_id" lay-verify="required">
-                    <option value=""></option>
-                    <option value="1">1</option>
-            </select>
+                <select name="role_id" lay-verify="required">
+                        <option value=""></option>
+                        <option value="1">1</option>
+                </select>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label">学院</label>
             <div class="layui-input-block">

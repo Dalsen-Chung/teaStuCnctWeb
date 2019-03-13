@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Teacher extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		if (!$this->session->is_login) {
+			$this->session->login_error = '请先登录!';
+			return redirect('web/login');
+		}
+	}
 
 	public function view($page = 'teacher')
 	{
@@ -50,7 +58,7 @@ class Teacher extends CI_Controller {
             'tea_name' => $this->input->post('tea_name'),
             'tea_spell' => $this->input->post('tea_spell'),
             'tea_sex' => $this->input->post('tea_sex'),
-            'role_id' => $this->input->post('role_id'),
+            'role_id' => 3,
             'college_id' => $this->input->post('college_id'),
             'major_id' => $this->input->post('major_id'),
             'tea_course' => $this->input->post('tea_course'),
