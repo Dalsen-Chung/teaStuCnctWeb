@@ -7,6 +7,7 @@ class Order_mgt_model extends CI_Model {
 
     public function get_apply_list() 
     {
+        $this->db->order_by('apply_time', 'DESC');
         $query_res = $this->db->get(self::$table_name);
         return $query_res->result_array();
     }

@@ -21,14 +21,13 @@
     </li>
   </ul>
   <ul class="layui-nav layui-layout-right">
-    <li class="layui-nav-item">
+    <li class="layui-nav-item <?php echo uri_string() === 'web/sys_mgt/baseInfo'? 'layui-this' : '' ?>">
       <a href="javascript:;">
         <img src="<?php echo base_url('public/common/image/avatar.jpg') ?>" class="layui-nav-img">
         <?php echo $this->session->admin_name; ?>
       </a>
       <dl class="layui-nav-child">
-        <dd><a href="">基本资料</a></dd>
-        <dd><a href="">安全设置</a></dd>
+        <dd><a href="<?php echo site_url('web/sys_mgt/baseInfo') ?>">基本资料</a></dd>
       </dl>
     </li>
     <li class="layui-nav-item"><a href="<?php echo site_url('web/logout') ?>">Logout</a></li>

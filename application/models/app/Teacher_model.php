@@ -26,6 +26,8 @@ class Teacher_model extends CI_Model {
     
     public function get_tea_by_id($tea_id)  {
         $query = $this->db->select('*')->from(self::$table_name)
+        ->join('college_info_tb','college_info_tb.college_id = tea_user_tb.college_id')
+        ->join('major_info_tb','major_info_tb.major_id = tea_user_tb.major_id')
                     ->where('tea_id', $tea_id)
                         ->get()->row_array();
         return $query;

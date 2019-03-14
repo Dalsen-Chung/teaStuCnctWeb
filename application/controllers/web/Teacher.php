@@ -54,7 +54,7 @@ class Teacher extends CI_Controller {
 	{
         $data = array(
             'tea_account' => $this->input->post('tea_account'),
-            'tea_password' => $this->input->post('tea_password'),
+            'tea_password' => md5($this->input->post('tea_password')),
             'tea_name' => $this->input->post('tea_name'),
             'tea_spell' => $this->input->post('tea_spell'),
             'tea_sex' => $this->input->post('tea_sex'),

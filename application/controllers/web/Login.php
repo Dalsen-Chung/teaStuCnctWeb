@@ -81,6 +81,7 @@ class Login extends CI_Controller {
 
 	public function redirect_to_order_mgt($user_info) {
 		$this->session->login_error = '';
+		$this->session->admin_id = $user_info['admin_id'];
 		$this->session->admin_name = $user_info['admin_name'];
 		$this->session->account = $user_info['admin_account'];
 		$this->session->college_id = $user_info['college_id'];

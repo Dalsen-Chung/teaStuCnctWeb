@@ -105,6 +105,10 @@ $route['web/user_mgt/administrators'] = 'web/Administrators/view';
 $route['web/user_mgt/add_administrators'] = 'web/Administrators/add_administrators';
 $route['web/user_mgt/delete_administrators'] = 'web/Administrators/delete_administrators';
 
+/* 系统设置 */
+$route['web/sys_mgt/baseInfo'] = 'web/Sys_mgt/view';
+$route['web/sys_mgt/updateInfo'] = 'web/Sys_mgt/update_info';
+
 /*******************   APP请求路由  ************************/
 $route['app/student/login'] = 'app/Student/login';
 $route['app/student/getStudentByCM'] = 'app/Student/get_stu_by_college_major';

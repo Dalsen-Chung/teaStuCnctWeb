@@ -7,6 +7,9 @@
             <div class="layui-card-body">
                 <table class="layui-table" lay-size="sm">
                     <colgroup>
+                        <col width="60">
+                        <col width="70">
+                        <col width="140">
                         <col>
                         <col>
                         <col>
@@ -14,10 +17,7 @@
                         <col>
                         <col>
                         <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
+                        <col width="90">
                     </colgroup>
                     <thead>
                         <tr>

@@ -46,6 +46,14 @@
                 </dd>
             </dl>
         </li>
+        <li class="layui-nav-item <?php echo strpos(uri_string(),'sys_mgt')  !== false ? 'layui-nav-itemed' : '' ?>">
+            <a href="javascript:;"><i class="layui-icon siderbar-icon">&#xe716;</i>系统管理</a>
+            <dl class="layui-nav-child">
+                <dd <?php echo strpos(uri_string(),'baseInfo')  !== false ? 'class="layui-this"' : '' ?> >
+                    <a href="<?php echo site_url('web/sys_mgt/baseInfo') ?>">基本资料</a>
+                </dd>
+            </dl>
+        </li>
       </ul>
     </div>
 </div>
