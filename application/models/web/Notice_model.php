@@ -11,6 +11,7 @@ class Notice_model extends CI_Model {
         $this->db->join('college_info_tb','college_info_tb.college_id = notice_tb.college_id');
         $this->db->join('major_info_tb','major_info_tb.major_id = notice_tb.major_id');
         $this->db->join('tea_user_tb','tea_user_tb.tea_id = notice_tb.notice_tea_id');
+        $this->db->order_by('notice_time', 'DESC');
         $query_res = $this->db->get(self::$table_name);
         return $query_res->result_array();
     }

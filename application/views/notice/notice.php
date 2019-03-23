@@ -56,7 +56,7 @@
                                         }
                                     ?>
                                 </td>
-                                <td><?php echo $notice['notice_content'] === '0' ? '否' : '是';?></td>
+                                <td><?php echo $notice['notice_is_all'] === '0' ? '否' : '是';?></td>
                                 <td>
                                     <a title="点击删除公告" href="<?php echo site_url('web/nt_mgt/delete_notice').'?notice_id='.$notice['notice_id']; ?>" 
                                         class="layui-btn layui-btn-danger layui-btn-xs"> 
